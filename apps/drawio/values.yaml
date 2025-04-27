@@ -1,0 +1,10 @@
+pod:
+  restartPolicy: Always
+
+containers:
+  app:
+    image: jgraph/drawio:latest
+    resources:
+      limits:
+        memory: 256Mi
+        cpu: 250m

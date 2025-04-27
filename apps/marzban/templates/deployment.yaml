@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-dpl
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      restartPolicy: {{ .Values.pod.restartPolicy }}
+      containers:
+      - name: marzban-app
+        image: {{ .Values.containers.app.image }}
+        resources:
+          limits:
+            memory: {{ .Values.containers.app.resources.limits.memory }}
+            cpu: {{ .Values.containers.app.resources.limits.cpu }}
+        env:
+        - name: SQLALCHEMY_DATABASE_URL
+          value: "sqlite:////var/lib/marzban/db/db.sqlite3"
+        - name: XRAY_JSON
+          value: "/var/lib/marzban/config/xray_config.json"
+        - name: UVICORN_HOST
+          value: "0.0.0.0"
+        - name: UVICORN_PORT
+          value: "8000"
+        - name: UVICORN_SSL_CERTFILE
+          value: "/certs/tls/tls.crt"
+        - name: UVICORN_SSL_KEYFILE
+          value: "/certs/tls/tls.key"
+        - name: UVICORN_SSL_CA_TYPE
+          value: "private"
+        volumeMounts:
+        - name: {{ .Release.Name }}-pvc
+          mountPath: /var/lib/marzban/db
+          subPath: db
+        - name: {{ .Release.Name }}-config
+          mountPath: /var/lib/marzban/config/xray_config.json
+          subPath: xray_config.json
+        - name: {{ .Release.Name }}-tls
+          mountPath: /certs/tls
+          readOnly: true
+        ports:
+        - containerPort: 8000
+        - containerPort: {{ .Values.config.vpn.vless.port }}
+        - containerPort: {{ .Values.config.vpn.shadowsocks.port }}
+      volumes:
+      - name: {{ .Release.Name }}-pvc
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-pvc
+      - name: {{ .Release.Name }}-config
+        configMap:
+          name: {{ .Release.Name }}-config
+      - name: {{ .Release.Name }}-tls
+        secret:
+          secretName: {{ .Release.Name }}-tls

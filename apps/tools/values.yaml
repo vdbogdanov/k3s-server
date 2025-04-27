@@ -1,0 +1,10 @@
+pod:
+  restartPolicy: Always
+
+containers:
+  app:
+    image: corentinth/it-tools:latest
+    resources:
+      limits:
+        memory: 256Mi
+        cpu: 250m
