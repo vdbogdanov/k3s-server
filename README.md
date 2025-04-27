@@ -1,4 +1,4 @@
-# k3s_server
+# k3s-server
 
 ## Get started
 
