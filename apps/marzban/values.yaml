@@ -17,8 +17,8 @@ containers:
 config:
   vpn:
     vless:
-      dest: cloudflare.com:443
-      serverNames: ["cloudflare.com","google.com"]
+      dest: google.com:443
+      serverNames: ["google.com"]
       privateKey: AJPbj4ftkYhB_KG1amEVLG4NK51pdmsCGH6ScU6w62Q
       SpiderX: /example
       shortIds: ea1058117be12087
