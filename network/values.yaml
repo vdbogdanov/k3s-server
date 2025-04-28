@@ -28,7 +28,7 @@ network:
       acl:
         - 10.42.0.0/16
 
-    - host: marzban.example.com
+    - host: vpn.example.com
       ingress:
         name: marzban-proxy
       svc:
