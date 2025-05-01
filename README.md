@@ -114,6 +114,12 @@ Generate VLESS shortIds:
 openssl rand -hex 8
 ```
 
+Create admin user:
+```
+kubectl exec -it <marzban pod> -n <marzban namespace> -- /bin/bash
+marzban-cli admin create --sudo
+```
+
 ### grafana
 
 You can change default username/password in `helmfile.yaml`.
