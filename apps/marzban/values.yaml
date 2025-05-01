@@ -23,5 +23,3 @@ config:
       SpiderX: /example
       shortIds: ea1058117be12087
       port: 30443
-    shadowsocks:
-      port: 30444
