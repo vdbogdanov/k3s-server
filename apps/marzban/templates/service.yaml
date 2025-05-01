@@ -26,8 +26,3 @@ spec:
     targetPort: {{ .Values.config.vpn.vless.port }}
     nodePort: {{ .Values.config.vpn.vless.port }}
     protocol: TCP
-  - name: shadowsocks
-    port: {{ .Values.config.vpn.shadowsocks.port }}
-    targetPort: {{ .Values.config.vpn.shadowsocks.port }}
-    nodePort: {{ .Values.config.vpn.shadowsocks.port }}
-    protocol: TCP

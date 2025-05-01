@@ -53,16 +53,6 @@ data:
               "quic"
             ]
           }
-        },
-        {
-          "tag": "Shadowsocks TCP",
-          "listen": "0.0.0.0",
-          "port": {{ .Values.config.vpn.shadowsocks.port }},
-          "protocol": "shadowsocks",
-          "settings": {
-            "clients": [],
-            "network": "tcp,udp"
-          }
         }
       ],
       "outbounds": [
