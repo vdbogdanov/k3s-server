@@ -47,7 +47,6 @@ spec:
         ports:
         - containerPort: 8000
         - containerPort: {{ .Values.config.vpn.vless.port }}
-        - containerPort: {{ .Values.config.vpn.shadowsocks.port }}
       volumes:
       - name: {{ .Release.Name }}-pvc
         persistentVolumeClaim:
