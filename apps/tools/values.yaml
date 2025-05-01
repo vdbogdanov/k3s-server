@@ -3,7 +3,7 @@ pod:
 
 containers:
   app:
-    image: corentinth/it-tools:latest
+    image: corentinth/it-tools:2024.10.22-7ca5933
     resources:
       limits:
         memory: 256Mi

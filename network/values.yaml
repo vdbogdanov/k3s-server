@@ -36,8 +36,6 @@ network:
         name: marzban-svc
         port: 8000
         protocol: HTTPS
-      acl:
-        - 10.42.0.0/16
 
     - host: vcenter.example.com
       ingress:

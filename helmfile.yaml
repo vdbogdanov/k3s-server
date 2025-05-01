@@ -32,6 +32,8 @@ releases:
     namespace: prometheus
     chart: prometheus-community/kube-prometheus-stack
     set:
+      - name: grafana.defaultDashboardsTimezone
+        value: Europe/Moscow
       - name: grafana.adminUser
         value: admin
       - name: grafana.adminPassword

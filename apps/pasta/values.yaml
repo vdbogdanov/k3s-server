@@ -9,7 +9,7 @@ containers:
         memory: 256Mi
         cpu: 250m
   db:
-    image: memcached:latest
+    image: memcached:1.6.38
     resources:
       limits:
         memory: 256Mi

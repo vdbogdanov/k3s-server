@@ -8,7 +8,7 @@ pod:
 
 containers:
   app:
-    image: gozargah/marzban:latest
+    image: gozargah/marzban:v0.8.4
     resources:
       limits:
         memory: 256Mi

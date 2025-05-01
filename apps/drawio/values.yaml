@@ -3,7 +3,7 @@ pod:
 
 containers:
   app:
-    image: jgraph/drawio:latest
+    image: jgraph/drawio:26.2.15
     resources:
       limits:
         memory: 256Mi
